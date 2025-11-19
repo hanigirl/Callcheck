@@ -166,6 +166,58 @@ body {
   --radius-radius-16: 1rem; /* 16px */
   --radius-radius-8: 0.5rem; /* 8px */
   --radius-radius-100: 6.25rem; /* 100px */
+  
+  /* Color tokens - Gray */
+  --gray-white: #ffffff;
+  --gray-gray-970: #fafafa;
+  --gray-gray-950: #f1f1f4;
+  --gray-gray-900: #e2e2e8;
+  --gray-gray-800: #c6c6d2;
+  --gray-gray-700: #a9a9bb;
+  --gray-gray-600: #8d8da5;
+  --gray-gray-500: #71718e;
+  --gray-gray-400: #5a5a72;
+  --gray-gray-300: #444456;
+  --gray-gray-200: #2d2d39;
+  --gray-gray-100: #17171d;
+  --gray-gray-50: #f1f1f4;
+  
+  /* Color tokens - Blue */
+  --blue-blue-950: #f0f2fe;
+  --blue-blue-900: #dee2fb;
+  --blue-blue-800: #c5cff8;
+  --blue-blue-700: #9eb0f3;
+  --blue-blue-600: #6f85ec;
+  --blue-blue-500: #4659e4;
+  --blue-blue-400: #3740d9;
+  --blue-blue-300: #2e2ec7;
+  --blue-blue-200: #2d2ba2;
+  --blue-blue-100: #282880;
+  --blue-blue-150: #1f1d4e;
+  
+  /* Color tokens - Red */
+  --red-red-950: #f8eced;
+  --red-red-900: #f2d9da;
+  --red-red-800: #e4b4b5;
+  --red-red-700: #d78e90;
+  --red-red-600: #ca686b;
+  --red-red-500: #bd4246;
+  --red-red-400: #973538;
+  --red-red-300: #71282a;
+  
+  /* Color tokens - Purple */
+  --purple-purple-800: #d7d0ec;
+  --purple-purple-700: #b7a4f4;
+  --purple-purple-600: #b7a4f4;
+  --purple-purple-500: #8c70e8;
+  
+  /* Color tokens - Green */
+  --green-green-950: #edf8eb;
+  --green-green-900: #ddf2d9;
+  --green-green-700: #99d78e;
+  --green-green-600: #77ca68;
+  --green-green-500: #55bd42;
+  --green-green-400: #449735;
 }
 
 body, * {

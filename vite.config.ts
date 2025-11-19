@@ -9,6 +9,9 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@design-system': path.resolve(__dirname, './design-system'),
+      '@design-system/css': path.resolve(__dirname, './design-system/css'),
+      '@design-system/components': path.resolve(__dirname, './design-system/components'),
+      '@design-system/icons': path.resolve(__dirname, './design-system/icons'),
     },
   },
   css: {

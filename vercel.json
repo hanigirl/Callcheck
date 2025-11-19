@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build:renderer",
+  "buildCommand": "npm install && npm run build:renderer",
   "outputDirectory": "dist/renderer",
   "installCommand": "npm install",
   "framework": null,
@@ -8,7 +8,6 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ],
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD ."
+  ]
 }
 

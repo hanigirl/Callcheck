@@ -60,8 +60,6 @@ const CallAnalysis: React.FC<CallAnalysisProps> = ({ onNavigate }) => {
     { value: 'sales', label: 'מכירה' },
   ];
 
-  const mainContentWidth = '1217px';
-
   // Container styles - זהה ל-Dashboard
   const appContainerStyle: React.CSSProperties = {
     width: '100%',

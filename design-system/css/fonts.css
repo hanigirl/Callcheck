@@ -1,0 +1,48 @@
+/* Ploni Font Face Definitions */
+/* Using relative paths that work with Vite's alias resolution */
+
+/* Regular weight (default) */
+@font-face {
+  font-family: 'Ploni_ML_v2_AAA';
+  src: url('../fonts/ploni-regular-aaa.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium weight */
+@font-face {
+  font-family: 'Ploni_ML_v2_AAA';
+  src: url('../fonts/ploni-medium-aaa.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* DemiBold weight (600) */
+@font-face {
+  font-family: 'Ploni_ML_v2_AAA';
+  src: url('../fonts/ploni-demibold-aaa.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ultra Light weight */
+@font-face {
+  font-family: 'Ploni_ML_v2_AAA';
+  src: url('../fonts/Ploni-ULight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ultra Bold weight */
+@font-face {
+  font-family: 'Ploni_ML_v2_AAA';
+  src: url('../fonts/Ploni-UBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+

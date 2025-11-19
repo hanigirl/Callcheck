@@ -1,0 +1,308 @@
+/* Callcheck Design System Tokens */
+:root {
+  --cc-color-bg: #ffffff;
+  --cc-color-surface: #ffffff;
+  --cc-color-page: #f9f9fb;
+  --cc-color-neutral-50: #f1f1f4;
+  --cc-color-neutral-100: #e7e7e4;
+  --cc-color-text-strong: #060034;
+  --cc-color-text: #0d072c;
+  --cc-color-text-muted: #484653;
+  --cc-color-text-subtle: #6f7890;
+  --cc-color-text-placeholder: #9390a2;
+  --cc-color-primary: #0d072c;
+  --cc-color-accent: #3b82f6;
+  --cc-color-success: #3c9133;
+  --cc-color-success-bg: #edf8eb;
+  --cc-color-danger: #913336;
+  --cc-color-danger-bg: #fcefef;
+  --cc-color-rail: #0d072c;
+  --cc-border: 1px solid var(--cc-color-neutral-100);
+  --cc-radius-8: 8px;
+  --cc-radius-12: 12px;
+  --cc-radius-16: 16px;
+  --cc-shadow-subtle: 0 0 24px rgba(162,156,178,0.10);
+  --cc-shadow-float: 0 0 24px rgba(174,174,152,0.16);
+  --cc-space-2: 4px;
+  --cc-space-3: 6px;
+  --cc-space-4: 8px;
+  --cc-space-5: 10px;
+  --cc-space-6: 12px;
+  --cc-space-8: 16px;
+  --cc-space-10: 20px;
+  --cc-space-12: 24px;
+  --cc-space-20: 40px;
+  --cc-font-display: "Ploni_ML_v2_AAA", sans-serif;
+  --cc-font-sans: "Noto_Sans_Hebrew_New", "Noto Sans", sans-serif;
+  --cc-size-xs: 12px;
+  --cc-size-sm: 14px;
+  --cc-size-md: 16px;
+  --cc-size-lg: 18px;
+  --cc-size-xl: 20px;
+  --cc-size-2xl: 24px;
+  --cc-size-4xl: 32px;
+  --cc-line-tight: 1;
+  --cc-line-normal: 1.4;
+  --cc-series-1: #4f46e5;
+  --cc-series-2: #06b6d4;
+  --cc-series-3: #f59e0b;
+  
+  /* Additional spacing tokens */
+  --spacing-spacing-4: 0.25rem;
+  --spacing-spacing-8: 0.5rem;
+  --spacing-spacing-24: 1.5rem;
+  --spacing-spacing-40: 2.5rem;
+  
+  /* Additional font size tokens */
+  --font-size-32: 2rem;
+  --font-size-24: 1.5rem;
+  --font-size-20: 1.25rem;
+  --font-size-16: 1rem;
+  --font-size-12: 0.75rem;
+  --font-size-14: 0.875rem;
+  
+  /* Color tokens - Gray */
+  --gray-white: #ffffff;
+  --gray-gray-970: #fafafa;
+  --gray-gray-950: #f1f1f4;
+  --gray-gray-900: #e2e2e8;
+  --gray-gray-800: #c6c6d2;
+  --gray-gray-700: #a9a9bb;
+  --gray-gray-600: #8d8da5;
+  --gray-gray-500: #71718e;
+  --gray-gray-400: #5a5a72;
+  --gray-gray-300: #444456;
+  --gray-gray-200: #2d2d39;
+  --gray-gray-100: #17171d;
+  
+  /* Color tokens - Blue */
+  --blue-blue-950: #f0f2fe;
+  --blue-blue-900: #dee2fb;
+  --blue-blue-800: #c5cff8;
+  --blue-blue-700: #9eb0f3;
+  --blue-blue-600: #6f85ec;
+  --blue-blue-500: #4659e4;
+  --blue-blue-400: #3740d9;
+  --blue-blue-300: #2e2ec7;
+  --blue-blue-200: #2d2ba2;
+  --blue-blue-100: #282880;
+  --blue-blue-150: #1f1d4e;
+  
+  /* Color tokens - Red */
+  --red-red-950: #f8eced;
+  --red-red-900: #f2d9da;
+  --red-red-800: #e4b4b5;
+  --red-red-700: #d78e90;
+  --red-red-600: #ca686b;
+  --red-red-500: #bd4246;
+  --red-red-400: #973538;
+  --red-red-300: #71282a;
+  
+  /* Color tokens - Purple */
+  --purple-purple-800: #d7d0ec;
+  --purple-purple-600: #b7a4f4;
+  --purple-purple-500: #8c70e8;
+  
+  /* Color tokens - Green */
+  --green-green-950: #edf8eb;
+  --green-green-900: #ddf2d9;
+  --green-green-700: #99d78e;
+  --green-green-600: #77ca68;
+  --green-green-500: #55bd42;
+  --green-green-400: #449735;
+  
+  /* Additional radius tokens */
+  --radius-radius-100: 6.25rem;
+  --radius-radius-16: 1rem;
+  --radius-radius-8: 0.5rem;
+}
+
+/* Base and RTL helpers */
+html {
+  background: var(--cc-color-page);
+}
+body {
+  color: var(--cc-color-text);
+  font-family: var(--cc-font-sans);
+}
+
+/* logical spacing utilities when Tailwind not present */
+.cc-card {
+  background: var(--cc-color-bg);
+  border-radius: var(--cc-radius-16);
+  box-shadow: var(--cc-shadow-subtle);
+}
+
+/* Pills */
+.cc-pill {
+  border-radius: 9999px;
+  padding: 4px 8px;
+  font-size: var(--cc-size-sm);
+}
+.cc-pill--danger {
+  background: var(--cc-color-danger-bg);
+  color: var(--cc-color-danger);
+}
+.cc-pill--success {
+  background: var(--cc-color-success-bg);
+  color: var(--cc-color-success);
+}
+
+/* Button Component Styles */
+.cc-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--cc-font-display);
+  font-weight: normal;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  user-select: none;
+  gap: var(--spacing-spacing-8);
+}
+
+.cc-button:focus-visible {
+  outline: 2px solid var(--blue-blue-500);
+  outline-offset: 2px;
+}
+
+.cc-button:active {
+  transform: scale(0.98);
+}
+
+/* Button Sizes */
+.cc-button--sm {
+  height: 36px;
+  padding: 6px 16px;
+  font-size: var(--font-size-14);
+  border-radius: 8px;
+  gap: var(--spacing-spacing-4);
+}
+
+.cc-button--lg {
+  height: 48px;
+  padding: 12px 16px;
+  font-size: var(--font-size-20);
+  border-radius: 8px;
+  gap: var(--spacing-spacing-8);
+}
+
+/* Button Variants */
+.cc-button--outline {
+  background-color: var(--gray-white);
+  color: var(--gray-gray-300);
+  border: 1px solid var(--gray-gray-800);
+}
+
+.cc-button--outline:hover:not(.cc-button--disabled) {
+  background-color: var(--gray-gray-970);
+}
+
+.cc-button--outline:active:not(.cc-button--disabled) {
+  background-color: var(--gray-gray-950);
+}
+
+.cc-button--filled {
+  background-color: var(--blue-blue-500);
+  color: var(--gray-white);
+}
+
+.cc-button--filled:hover:not(.cc-button--disabled) {
+  background-color: var(--blue-blue-400);
+}
+
+.cc-button--filled:active:not(.cc-button--disabled) {
+  background-color: var(--blue-blue-300);
+}
+
+.cc-button--dark {
+  background-color: var(--gray-gray-100);
+  color: var(--gray-gray-600);
+  border: 1px solid var(--gray-gray-800);
+}
+
+.cc-button--dark:hover:not(.cc-button--disabled) {
+  background-color: var(--gray-gray-200);
+}
+
+.cc-button--dark:active:not(.cc-button--disabled) {
+  background-color: var(--gray-gray-300);
+}
+
+/* Button States */
+.cc-button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Hover effects are prevented by :not(.cc-button--disabled) in variant styles */
+
+.cc-button--full-width {
+  width: 100%;
+}
+
+/* Button Content */
+.cc-button__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Icon sizes based on button size */
+.cc-button--sm .cc-button__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.cc-button--sm .cc-button__icon svg,
+.cc-button--sm .cc-button__icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.cc-button--lg .cc-button__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.cc-button--lg .cc-button__icon svg,
+.cc-button--lg .cc-button__icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.cc-button__text {
+  display: inline-block;
+}
+
+/* Call Card Component */
+.cc-call-card {
+  background: var(--gray-white);
+  border-radius: var(--radius-radius-16);
+  box-shadow: var(--cc-shadow-subtle);
+  border: 1px solid var(--gray-gray-950);
+  transition: all 0.2s ease;
+  direction: rtl; /* Force RTL for right alignment */
+}
+
+.cc-call-card:hover {
+  box-shadow: var(--cc-shadow-float);
+  transform: translateY(-2px);
+}
+
+.cc-call-card:active {
+  transform: translateY(0);
+}
+
+    /* Top Bar Component */
+    .cc-top-bar input::placeholder {
+      color: var(--gray-gray-700);
+      opacity: 1;
+    }
+
+    .cc-top-bar input:focus::placeholder {
+      color: var(--gray-gray-700);
+      opacity: 0.6;
+    }

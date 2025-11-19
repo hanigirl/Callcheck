@@ -18,10 +18,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@design-system/*": ["../design-system/*"]
+      "@design-system/*": ["./design-system/*"]
     }
   },
-  "include": ["src", "../design-system/**/*"],
+  "include": ["src", "design-system/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
 

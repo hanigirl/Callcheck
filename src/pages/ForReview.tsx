@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, CallCard, Sidebar, TopBar, Table, TableColumn, TableRow } from '@design-system';
+import { Button, CallCard, Sidebar, TopBar, Table } from '@design-system';
 import { SearchSuggestion } from '@design-system/components/SearchInput';
 import homeIcon from '@design-system/icons/home.svg';
 import filesIcon from '@design-system/icons/files.svg';
@@ -532,7 +532,7 @@ const ForReview: React.FC = () => {
               },
             },
           ]}
-          onRowClick={(row, index) => {
+          onRowClick={(row: any, index: number) => {
             console.log('Row clicked:', row, index);
           }}
         />

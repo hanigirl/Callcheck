@@ -29,3 +29,4 @@ yarn-error.log*
 # Electron
 out/
 
+# Auto-push configuration

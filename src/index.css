@@ -1,0 +1,363 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  direction: rtl;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Local font faces for Ploni ML v2 AAA */
+@font-face {
+  font-family: 'Ploni ML v2 AAA';
+  src: local('Ploni ML v2 AAA DemiBold'), local('Ploni ML v2 AAA Demi Bold'),
+       url('/fonts/Ploni-ML-v2-AAA-DemiBold.woff2') format('woff2'),
+       url('/fonts/Ploni-ML-v2-AAA-DemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ploni ML v2 AAA';
+  src: local('Ploni ML v2 AAA Regular'), local('Ploni ML v2 AAA'),
+       url('/fonts/Ploni-ML-v2-AAA-Regular.woff2') format('woff2'),
+       url('/fonts/Ploni-ML-v2-AAA-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ploni ML v2 AAA';
+  src: local('Ploni ML v2 AAA Medium'), local('Ploni ML v2 AAA Medium Weight'),
+       url('/fonts/Ploni-ML-v2-AAA-Medium.woff2') format('woff2'),
+       url('/fonts/Ploni-ML-v2-AAA-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Typography Tokens with Ploni ML v2 AAA + Noto Sans Hebrew */
+:root {
+  /* Font Family - Ploni ML v2 AAA as primary, Noto Sans Hebrew as fallback */
+  --cc-font-primary: 'Ploni ML v2 AAA', 'פלוני', 'Peloni', 'Noto Sans Hebrew', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --cc-font-sans: var(--cc-font-primary); /* Keep backward compatibility */
+  
+  /* Typography Tokens - From Design System */
+  /* Headings */
+  --typography-h1-size: 32px;
+  --typography-h1-weight: 600; /* DemiBold */
+  --typography-h1-line-height: normal; /* AUTO */
+  
+  --typography-h2-size: 24px;
+  --typography-h2-weight: 600; /* DemiBold */
+  --typography-h2-line-height: normal; /* AUTO */
+  
+  --typography-h3-size: 20px;
+  --typography-h3-weight: 600; /* DemiBold */
+  --typography-h3-line-height: normal; /* AUTO */
+  
+  --typography-h4-size: 16px;
+  --typography-h4-weight: 600; /* DemiBold */
+  --typography-h4-line-height: normal; /* AUTO */
+
+  /* Body Text */
+  --typography-body-size: 16px;
+  --typography-body-weight: 400; /* Regular */
+  --typography-body-line-height: normal;
+  
+  --typography-body-sm-size: 14px;
+  --typography-body-sm-weight: 400; /* Regular */
+  --typography-body-sm-line-height: normal;
+  
+  --typography-body-xs-size: 12px;
+  --typography-body-xs-weight: 400; /* Regular */
+  --typography-body-xs-line-height: normal;
+  
+  --typography-body-accented-size: 16px;
+  --typography-body-accented-weight: 500; /* Medium */
+  --typography-body-accented-line-height: 100%;
+
+  /* Button Text */
+  --typography-button-size: 16px;
+  --typography-button-weight: 500; /* Medium */
+  --typography-button-line-height: normal; /* AUTO */
+
+  /* Backward compatibility - map old tokens to new ones */
+  --cc-typography-h1-size: var(--typography-h1-size);
+  --cc-typography-h2-size: var(--typography-h2-size);
+  --cc-typography-h3-size: var(--typography-h3-size);
+  --cc-typography-h4-size: var(--typography-h4-size);
+  --cc-typography-body-size: var(--typography-body-size);
+  --cc-typography-body-sm-size: var(--typography-body-sm-size);
+  --cc-typography-body-xs-size: var(--typography-body-xs-size);
+  --cc-typography-body-accented-size: var(--typography-body-accented-size);
+  --cc-typography-button-size: var(--typography-button-size);
+  
+  --cc-typography-h1-line-height: var(--typography-h1-line-height);
+  --cc-typography-h2-line-height: var(--typography-h2-line-height);
+  --cc-typography-h3-line-height: var(--typography-h3-line-height);
+  --cc-typography-h4-line-height: var(--typography-h4-line-height);
+  --cc-typography-body-line-height: var(--typography-body-line-height);
+  --cc-typography-body-sm-line-height: var(--typography-body-sm-line-height);
+  --cc-typography-body-xs-line-height: var(--typography-body-xs-line-height);
+  --cc-typography-body-accented-line-height: var(--typography-body-accented-line-height);
+  --cc-typography-button-line-height: var(--typography-button-line-height);
+
+  /* Design System Tokens - Colors */
+  /* Primary */
+  --primary-primary-default-50: var(--blue-blue-500);
+  --primary-primary-hover-40: var(--blue-blue-400);
+  --primary-primary-data-70: var(--blue-blue-700);
+  --primary-primary-data-80: var(--blue-blue-800);
+  --primary-primary-surface: var(--blue-blue-950);
+  --primary-10: #060034;
+
+  /* Neutral */
+  --neutral-white: #ffffff;
+  --neutral-neutral-surface: var(--gray-gray-50);
+  --neutral-neutral-text-default: var(--gray-gray-300);
+  --neutral-black: #17171d;
+  --neutral-neutral-20: var(--gray-gray-200);
+  --neutral-neutral-40: var(--gray-gray-400);
+  --neutral-neutral-70: var(--gray-gray-700);
+  --neutral-neutral-80: var(--gray-gray-800);
+  --neutral-neutral-90: var(--gray-gray-900);
+  --neutral-neutral-95: var(--gray-gray-950);
+  --neutral-neutral-97: var(--gray-gray-970);
+  --neutral-50: #f9f9fb;
+
+  /* Danger */
+  --danger-danger-primary-2: var(--red-red-500);
+  --danger-danger-400: #973538;
+  --danger-danger-surface: #f8eced;
+  --danger-danger-bar: var(--red-red-700);
+
+  /* Success */
+  --success-success-default: var(--green-green-500);
+  --success-success-bar: var(--green-green-700);
+  --success-success-surface: #edf8eb;
+  --success-success-text: #449735;
+
+  /* Data Visualization */
+  --data-vizualization-purple-dark: var(--purple-purple-700);
+  --data-vizualization-purple-medium: #b7a4f4;
+  --data-vizualization-purple-light: #d7d0ec;
+
+  /* Design System Tokens - Spacing */
+  --spacing-spacing-large: 2.5rem; /* 40px */
+  --spacing-spacing-medium: 1.5rem; /* 24px */
+  --spacing-spacing-small: 0.5rem; /* 8px */
+  --spacing-spacing-xs: 0.25rem; /* 4px */
+
+  /* Design System Tokens - Border Radius */
+  --radius-radius-16: 1rem; /* 16px */
+  --radius-radius-8: 0.5rem; /* 8px */
+  --radius-radius-100: 6.25rem; /* 100px */
+}
+
+body, * {
+  font-family: var(--cc-font-primary);
+}
+
+body {
+  font-size: var(--typography-body-size);
+  font-weight: var(--typography-body-weight);
+  line-height: var(--typography-body-line-height);
+  font-family: var(--cc-font-primary);
+  letter-spacing: 0%;
+  text-transform: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Utility Classes - Using Design System Tokens */
+.typography-h1 {
+  font-size: var(--typography-h1-size);
+  font-weight: var(--typography-h1-weight);
+  line-height: var(--typography-h1-line-height);
+  font-family: var(--cc-font-primary);
+}
+
+.typography-h2 {
+  font-size: var(--typography-h2-size);
+  font-weight: var(--typography-h2-weight);
+  line-height: var(--typography-h2-line-height);
+  font-family: var(--cc-font-primary);
+}
+
+.typography-h3 {
+  font-size: var(--typography-h3-size);
+  font-weight: var(--typography-h3-weight);
+  line-height: var(--typography-h3-line-height);
+  font-family: var(--cc-font-primary);
+}
+
+.typography-h4 {
+  font-size: var(--typography-h4-size);
+  font-weight: var(--typography-h4-weight);
+  line-height: var(--typography-h4-line-height);
+  font-family: var(--cc-font-primary);
+}
+
+.typography-body {
+  font-size: var(--typography-body-size);
+  font-weight: var(--typography-body-weight);
+  line-height: var(--typography-body-line-height);
+  font-family: var(--cc-font-primary);
+}
+
+.typography-body-sm {
+  font-size: var(--typography-body-sm-size);
+  font-weight: var(--typography-body-sm-weight);
+  line-height: var(--typography-body-sm-line-height);
+  font-family: var(--cc-font-primary);
+}
+
+.typography-body-xs {
+  font-size: var(--typography-body-xs-size);
+  font-weight: var(--typography-body-xs-weight);
+  line-height: var(--typography-body-xs-line-height);
+  font-family: var(--cc-font-primary);
+}
+
+.typography-body-accented {
+  font-size: var(--typography-body-accented-size);
+  font-weight: var(--typography-body-accented-weight);
+  line-height: var(--typography-body-accented-line-height);
+  font-family: var(--cc-font-primary);
+}
+
+.typography-button {
+  font-size: var(--typography-button-size);
+  font-weight: var(--typography-button-weight);
+  line-height: var(--typography-button-line-height);
+  font-family: var(--cc-font-primary);
+}
+
+/* HTML Element Overrides - Using Design System Tokens */
+h1 {
+  font-size: var(--typography-h1-size);
+  font-weight: var(--typography-h1-weight);
+  line-height: var(--typography-h1-line-height);
+  font-family: var(--cc-font-primary);
+  font-style: normal;
+  letter-spacing: 0%;
+  text-transform: none;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: var(--typography-h2-size);
+  font-weight: var(--typography-h2-weight);
+  line-height: var(--typography-h2-line-height);
+  font-family: var(--cc-font-primary);
+  letter-spacing: 0%;
+  text-transform: none;
+  text-decoration: none;
+}
+
+h3 {
+  font-size: var(--typography-h3-size);
+  font-weight: var(--typography-h3-weight);
+  line-height: var(--typography-h3-line-height);
+  font-family: var(--cc-font-primary);
+  letter-spacing: 0%;
+  text-transform: none;
+  text-decoration: none;
+}
+
+h4 {
+  font-size: var(--typography-h4-size);
+  font-weight: var(--typography-h4-weight);
+  line-height: var(--typography-h4-line-height);
+  font-family: var(--cc-font-primary);
+  letter-spacing: 0%;
+  text-transform: none;
+  text-decoration: none;
+}
+
+p {
+  font-size: var(--typography-body-size);
+  font-weight: var(--typography-body-weight);
+  line-height: var(--typography-body-line-height);
+  font-family: var(--cc-font-primary);
+  letter-spacing: 0%;
+  text-transform: none;
+  text-decoration: none;
+}
+
+/* Button Typography - All buttons use Medium weight (500) */
+button,
+[role="button"],
+[class*="Button"],
+[class*="button"] {
+  font-weight: var(--typography-button-weight) !important; /* Medium - 500 */
+}
+
+/* Ensure button text content uses button typography */
+button,
+[role="button"],
+[class*="Button"],
+[class*="button"] {
+  font-size: var(--typography-button-size);
+  line-height: var(--typography-button-line-height);
+  font-family: var(--cc-font-primary);
+  letter-spacing: 0%;
+  text-transform: none;
+  text-decoration: none;
+}
+
+/* Design System Button Styles */
+.cc-button {
+  padding: 8px 16px; /* 16px vertical, 8px horizontal = 36px total height (8px top + 16px content + 8px bottom + 2px border = ~36px) */
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.cc-button--sm {
+  /* Small button - maintains 36px height with padding 8px 16px */
+  padding: 8px 16px;
+}
+
+.cc-button--outline {
+  /* Outline variant - hover and active states are the same */
+}
+
+/* Make hover state equal to pressed/active state for outline buttons */
+.cc-button--outline:hover,
+.cc-button--outline:active,
+.cc-button--outline:focus:active {
+  background-color: var(--neutral-neutral-95) !important;
+}
+
+/* Cards Padding - 24px from all sides */
+/* Target cards with border and border-radius */
+div[style*="background: var(--neutral-white)"][style*="border: 1px solid"][style*="border-radius: var(--radius-radius-16)"] {
+  padding: var(--spacing-spacing-medium) !important; /* 24px all sides */
+}
+
+/* Table Padding - 24px top and bottom only */
+[class*="Table"],
+[class*="table"],
+div[style*="padding: var(--spacing-spacing-24)"],
+div[style*="padding:var(--spacing-spacing-24)"] {
+  padding-top: var(--spacing-spacing-medium) !important; /* 24px */
+  padding-bottom: var(--spacing-spacing-medium) !important; /* 24px */
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+

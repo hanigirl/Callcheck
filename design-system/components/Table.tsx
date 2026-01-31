@@ -302,7 +302,7 @@ export function Table({
   const rowStyle: React.CSSProperties = {
     background: 'var(--gray-white)',
     borderBottom: '1px solid var(--gray-gray-950)',
-    padding: '16px 0',
+    padding: '16px 24px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start', // In RTL with direction:'rtl', flex-start is visual right

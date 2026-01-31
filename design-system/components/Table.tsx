@@ -60,20 +60,27 @@ function TableRow({
   );
 }
 
-// Quote chip component for displaying quotes - responsive
+// Quote icon component (blue)
+const QuoteIcon = () => (
+  <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 4.5C0 2.567 1.567 1 3.5 1H4C5.10457 1 6 1.89543 6 3V9.5C6 11.433 4.433 13 2.5 13H2C0.895431 13 0 12.1046 0 11V4.5Z" fill="#4659E4"/>
+    <path d="M7 4.5C7 2.567 8.567 1 10.5 1H11C12.1046 1 13 1.89543 13 3V9.5C13 11.433 11.433 13 9.5 13H9C7.89543 13 7 12.1046 7 11V4.5Z" fill="#4659E4"/>
+  </svg>
+);
+
+// Quote chip component for displaying quotes - matches Figma design
 const QuoteChip = ({ text, onClick }: { text: string; onClick?: () => void }) => {
   const chipStyle: React.CSSProperties = {
-    background: 'var(--gray-gray-970)',
-    borderRadius: 'var(--radius-radius-16)',
+    background: 'var(--neutral-neutral-97, #fafafa)',
+    borderRadius: 'var(--radius-radius-16, 16px)',
     padding: '16px 20px',
     display: 'flex',
     gap: '12px',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    minWidth: '120px', // Minimum width for readability
-    maxWidth: '247px',
-    flexShrink: 1, // Allow shrinking
-    flexBasis: '247px',
+    width: '247px',
+    height: '56px',
+    flexShrink: 0,
     direction: 'rtl',
     cursor: onClick ? 'pointer' : 'default',
     boxSizing: 'border-box',
@@ -81,15 +88,17 @@ const QuoteChip = ({ text, onClick }: { text: string; onClick?: () => void }) =>
 
   const textStyle: React.CSSProperties = {
     flex: 1,
-    minWidth: 0, // Allow text to shrink
-    fontSize: 'var(--font-size-16)',
-    fontFamily: 'var(--cc-font-display)',
-    fontWeight: 'normal',
-    color: 'var(--gray-gray-100)',
+    minWidth: 0,
+    fontSize: '16px',
+    fontFamily: 'var(--cc-font-primary)',
+    fontWeight: 400, // Regular
+    lineHeight: 'normal',
+    color: 'var(--neutral-black, #17171d)',
     textAlign: 'right',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
+    height: '24px',
   };
 
   const iconStyle: React.CSSProperties = {
@@ -97,14 +106,6 @@ const QuoteChip = ({ text, onClick }: { text: string; onClick?: () => void }) =>
     height: '14px',
     flexShrink: 0,
   };
-
-  // Simple quote icon (blue)
-  const QuoteIcon = () => (
-    <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2.5 7C2.5 5.89543 3.39543 5 4.5 5H5.5C6.60457 5 7.5 5.89543 7.5 7V10.5C7.5 11.6046 6.60457 12.5 5.5 12.5H4.5C3.39543 12.5 2.5 11.6046 2.5 10.5V7Z" fill="#4659E4"/>
-      <path d="M8.5 7C8.5 5.89543 9.39543 5 10.5 5H11.5C12.6046 5 13.5 5.89543 13.5 7V10.5C13.5 11.6046 12.6046 12.5 11.5 12.5H10.5C9.39543 12.5 8.5 11.6046 8.5 10.5V7Z" fill="#4659E4"/>
-    </svg>
-  );
 
   return (
     <div style={chipStyle} onClick={onClick}>
@@ -116,9 +117,83 @@ const QuoteChip = ({ text, onClick }: { text: string; onClick?: () => void }) =>
   );
 };
 
-// Event count badge component
+// Quotes container - displays multiple quotes with "+X נוספים" text
+type QuotesContainerProps = {
+  quotes: string[];
+  maxVisible?: number;
+  onQuoteClick?: (quote: string, index: number) => void;
+};
+
+const QuotesContainer = ({ quotes, maxVisible = 2, onQuoteClick }: QuotesContainerProps) => {
+  const containerStyle: React.CSSProperties = {
+    display: 'flex',
+    gap: '8px',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    direction: 'rtl',
+    flex: 1,
+    minWidth: 0,
+  };
+
+  const moreTextStyle: React.CSSProperties = {
+    fontSize: '14px',
+    fontFamily: 'var(--cc-font-primary)',
+    fontWeight: 400,
+    lineHeight: 'normal',
+    color: 'var(--neutral-black, #17171d)',
+    whiteSpace: 'nowrap',
+    textAlign: 'right',
+  };
+
+  const visibleQuotes = quotes.slice(0, maxVisible);
+  const remainingCount = quotes.length - maxVisible;
+
+  return (
+    <div style={containerStyle}>
+      {/* Show visible quotes - first quote on right */}
+      {visibleQuotes.map((quote, index) => (
+        <QuoteChip 
+          key={index} 
+          text={quote} 
+          onClick={onQuoteClick ? () => onQuoteClick(quote, index) : undefined}
+        />
+      ))}
+      {/* Show "+X נוספים" if there are more quotes */}
+      {remainingCount > 0 && (
+        <span style={moreTextStyle}>{remainingCount}+ נוספים</span>
+      )}
+    </div>
+  );
+};
+
+// Event count badge component - matches Figma design with danger surface
 const EventCountBadge = ({ count }: { count: number }) => {
-  return <Badge count={count} variant="neutral" />;
+  const badgeStyle: React.CSSProperties = {
+    background: 'var(--danger-danger-surface, #f8eced)',
+    borderRadius: '100px',
+    width: '32px',
+    height: '32px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '4px',
+    boxSizing: 'border-box',
+  };
+
+  const textStyle: React.CSSProperties = {
+    fontSize: '16px',
+    fontFamily: 'var(--cc-font-primary)',
+    fontWeight: 500, // Medium
+    lineHeight: '100%',
+    color: 'var(--danger-danger-400, #973538)',
+    textAlign: 'center',
+  };
+
+  return (
+    <div style={badgeStyle}>
+      <span style={textStyle}>{count}</span>
+    </div>
+  );
 };
 
 // Table component props
@@ -148,7 +223,7 @@ export function Table({
   const tableStyle: React.CSSProperties = {
     background: 'var(--gray-white)',
     borderRadius: 'var(--radius-radius-16)',
-    padding: 'var(--spacing-spacing-24)',
+    padding: 'var(--spacing-spacing-24, 24px)',
     display: 'flex',
     flexDirection: 'column',
     gap: 'var(--spacing-spacing-8)',
@@ -227,7 +302,7 @@ export function Table({
   const rowStyle: React.CSSProperties = {
     background: 'var(--gray-white)',
     borderBottom: '1px solid var(--gray-gray-950)',
-    padding: '16px var(--spacing-spacing-24)',
+    padding: '16px 8px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start', // In RTL with direction:'rtl', flex-start is visual right
@@ -328,5 +403,6 @@ export function Table({
 
 // Export helper components for common use cases
 Table.QuoteChip = QuoteChip;
+Table.QuotesContainer = QuotesContainer;
 Table.EventCountBadge = EventCountBadge;
 

@@ -192,7 +192,7 @@ export function SearchInput({
     background: 'transparent',
     fontSize: '16px',
     fontFamily: 'var(--cc-font-display)',
-    fontWeight: 'normal',
+    fontWeight: 400,
     color: 'var(--gray-gray-100)',
     textAlign: 'right',
     padding: 0,

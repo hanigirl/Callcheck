@@ -13,4 +13,5 @@ export * from './components/TopBar';
 export * from './components/Table';
 export * from './components/Tag';
 export * from './components/FaultCard';
+export * from './components/CategoryStats';
 export * from './icons';

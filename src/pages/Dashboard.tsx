@@ -1091,28 +1091,16 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
                 {
                   key: 'quote',
                   header: 'ציטוט',
-                  width: 600,
                   align: 'right',
                   render: (data: any) => {
                     const quoteData = typeof data === 'object' && data !== null ? data : {};
                     const quotes = quoteData.quotes || (Array.isArray(data) ? data : []);
 
                     return (
-                      <div style={{
-                        display: 'flex',
-                        gap: 'var(--spacing-spacing-small)',
-                        alignItems: 'center',
-                        direction: 'rtl',
-                        width: '100%',
-                      }}>
-                        {/* Show first two quotes if available - order: first quote on right, second on left */}
-                        {quotes.length > 0 && (
-                          <Quote text={quotes[0]} />
-                        )}
-                        {quotes.length > 1 && (
-                          <Quote text={quotes[1]} />
-                        )}
-                      </div>
+                      <Table.QuotesContainer 
+                        quotes={quotes}
+                        maxVisible={2}
+                      />
                     );
                   },
                 },
@@ -1129,7 +1117,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
                   },
                   events: 12,
                   quote: {
-                    quotes: ['לא מדובר בהחלטה חד צדדית', 'אנחנו פונים אליך כדי לחדש תרצה שנציג יחזור אליך?'],
+                    quotes: ['אנחנו פונים אליך כדי לחדש תרצה שנציג יחזור אליך?', 'לא מדובר בהחלטה חד צדדית', 'ציטוט נוסף 1', 'ציטוט נוסף 2', 'ציטוט נוסף 3', 'ציטוט נוסף 4', 'ציטוט נוסף 5', 'ציטוט נוסף 6', 'ציטוט נוסף 7', 'ציטוט נוסף 8', 'ציטוט נוסף 9', 'ציטוט נוסף 10'],
                   },
                 },
                 {
@@ -1143,7 +1131,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
                   },
                   events: 6,
                   quote: {
-                    quotes: ['לא מדובר בהחלטה חד צדדית', 'אנחנו פונים אליך כדי לחדש תרצה שנציג יחזור אליך?'],
+                    quotes: ['אנחנו פונים אליך כדי לחדש תרצה שנציג יחזור אליך?', 'לא מדובר בהחלטה חד צדדית', 'ציטוט נוסף 1', 'ציטוט נוסף 2'],
                   },
                 },
                 {
